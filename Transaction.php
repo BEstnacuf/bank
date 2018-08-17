@@ -49,7 +49,7 @@ class Transaction {
             $stmt->closeCursor();
  
             if($amount >= $availableAmount){
-                return "ยอดเงินในบันชีไม่เพียงพอ"
+                return "ยอดเงินในบันชีไม่เพียงพอ";
             }
 
             // deduct from the transferred account
@@ -74,9 +74,9 @@ class Transaction {
             $availableAmount = (int) $stmt->fetchColumn();
             $stmt->closeCursor();
  
-            if($availableAmount < 0){
-                return ;
-            }
+            // if($amount < 0){
+            //     throw new PDOException();
+            // }
  
             // commit the transaction
             $this->pdo->commit();
